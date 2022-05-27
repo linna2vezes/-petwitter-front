@@ -77,10 +77,10 @@ function Login() {
        
           <InputGroup  focusBorderColor='#00ACC1'  flexDirection={"column"} bgcolor={"white"} size='md' gap={"7px"}>
          
-          <FormLabel>    Email:      
+          <FormLabel>    Email      
           <Input variant="outline" width={'100%'}  placeholder='E-mail' size='md' /></FormLabel>
           
-          <FormLabel>      Senha: 
+          <FormLabel>      Senha 
           <Input   width={'100%'} variant="outline"  bg={"white"}    
           placeholder='Senha' 
             type={show ? 'text' : 'password'} />

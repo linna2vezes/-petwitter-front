@@ -7,7 +7,7 @@ import logo from '../images/logo.png'
 import logoBlue from '../images/logoBlue.png'
 import dogFrontDesktop from '../images/dogFrontDesktop.png'
 import logoWhiteDesktop from '../images/logoWhiteDesktop.png'
-import { LoginTitle, HeadingTitle, LinkRegister} from "../styled";
+import { LoginTitle,  LinkRegister} from "../styled";
 import React from 'react';
 import { ViewIcon , ViewOffIcon } from '@chakra-ui/icons'
 
@@ -46,16 +46,13 @@ function Register() {
      {/* --------------------imagem background */}
 
       <Stack  color={'white'}  bgImage={[dogFrontRegister,dogFrontDesktop]} bgRepeat='no-repeat' bgSize={'cover'} bgPosition={"center"}
-      height={['262px', '100vh']}  display={'flex'} gap={"2rem"} paddingLeft={"2rem"} justify={'center'} paddingTop={"4rem"} flexDirection={"column"} Width ={'100%'} maxW={['','768px']}
+      height={['143px', '100vh']}  display={'flex'} gap={"2rem"} paddingLeft={"2rem"} justify={'center'} paddingTop={"4rem"} flexDirection={"column"} Width ={'100%'} maxW={['','768px']}
       minW={['','768px']}>
         
       
      {!isLargerThan480?  <>
       <Image   boxSize='50px' src= {logoWhite}   alt='LOGO'  />
-      <HeadingTitle>
-       Comece agora. <br/>
-       Conecte-se já.
-      </HeadingTitle>
+      
       </> : <Image width={'418px'} justify={'center'} alignSelf='center' src= {logoWhiteDesktop}  alt='LOGO'  />}
 
     </Stack>
@@ -66,26 +63,32 @@ function Register() {
     Width ={'100%'} maxW={['','512px']}  minW={['','500px']} >
 
     {!isLargerThan480?  ''  : <><Flex color={'#00ACC1'} display={'flex'} flexDirection={'column'} marginLeft={'0'}><Image width={'76px'}  src= {logoBlue}  alt='LOGO'  />
-    <HeadingTitle >    Comece agora.<br />Conecte-se já!</HeadingTitle> </Flex>
+    </Flex>
      </>}
     
     <LoginTitle >
-    Login
+    Cadastro
     </LoginTitle>
      
          <form onSubmit={handleSubmit} >
        
           <InputGroup  focusBorderColor='#00ACC1'  flexDirection={"column"} bgcolor={"white"} size='md' gap={"7px"}>
-         
-          <FormLabel>    Email:      
+
+          <FormLabel>    Nome      
+          <Input variant="outline" width={'100%'}  placeholder='Nome' size='md' /></FormLabel>
+
+          <FormLabel>    Email      
           <Input variant="outline" width={'100%'}  placeholder='E-mail' size='md' /></FormLabel>
+
+          <FormLabel>    Nome de usuário      
+          <Input variant="outline" width={'100%'}  placeholder='Ex.: @billbulldog' size='md' /></FormLabel>
           
-          <FormLabel>      Senha: 
+          <FormLabel>      Senha
           <Input   width={'100%'} variant="outline"  bg={"white"}    
           placeholder='Senha' 
             type={show ? 'text' : 'password'} />
      
-         <InputRightElement  paddingTop={"7.7rem"}  width='4.3rem'>
+         <InputRightElement  paddingTop={"17.7rem"}  width='4.3rem'>
           <Button  h='1.75rem' size='lg' bg='none' onClick={handleClick}>
           {show ? <ViewOffIcon boxSize={6}/> : <ViewIcon  boxSize={6}/>} </Button>
          </InputRightElement></FormLabel>
@@ -99,7 +102,7 @@ function Register() {
       <LinkRegister >
       <Flex paddingTop={"2rem"} flexDirection={"column"} paddingBottom={"2rem"}>
       Já possui uma conta? 
-      <Link as={ReachLink} color= "#00ACC1" textDecoration={"underline"} to='/login' >Faça login</Link>
+      <Link as={ReachLink} color= "#00ACC1" textDecoration={"underline"} to='/login' >Faça o Cadastro</Link>
       </Flex>
       </LinkRegister>
 
