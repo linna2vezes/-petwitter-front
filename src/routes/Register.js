@@ -1,7 +1,7 @@
 import { Flex, Stack, Image, Input, InputGroup,InputRightElement, Button, Link, useMediaQuery, Container, FormLabel  } from "@chakra-ui/react";
 import { useLocation, useNavigate, Link as ReachLink } from "react-router-dom";
 import { useAuth } from "../context/auth-context";
-import dogFront from '../images/dogFront.png'
+import dogFrontRegister from '../images/dogFrontRegister.png'
 import logoWhite from '../images/logoWhite.png'
 import logo from '../images/logo.png'
 import logoBlue from '../images/logoBlue.png'
@@ -17,7 +17,7 @@ import { ViewIcon , ViewOffIcon } from '@chakra-ui/icons'
 
 
 
-function Login() {
+function Register() {
   const navigate = useNavigate();
   const location = useLocation();
   const { signin } = useAuth();
@@ -45,7 +45,7 @@ function Login() {
     <Flex direction={['column', 'row']}  paddingBottom={['4rem', 0]}>
      {/* --------------------imagem background */}
 
-      <Stack  color={'white'}  bgImage={[dogFront,dogFrontDesktop]} bgRepeat='no-repeat' bgSize={'cover'} bgPosition={"center"}
+      <Stack  color={'white'}  bgImage={[dogFrontRegister,dogFrontDesktop]} bgRepeat='no-repeat' bgSize={'cover'} bgPosition={"center"}
       height={['262px', '100vh']}  display={'flex'} gap={"2rem"} paddingLeft={"2rem"} justify={'center'} paddingTop={"4rem"} flexDirection={"column"} Width ={'100%'} maxW={['','768px']}
       minW={['','768px']}>
         
@@ -98,8 +98,8 @@ function Login() {
 
       <LinkRegister >
       <Flex paddingTop={"2rem"} flexDirection={"column"} paddingBottom={"2rem"}>
-      Ainda não possui uma conta? 
-      <Link as={ReachLink} color= "#00ACC1" textDecoration={"underline"} to='/register' >Cadastrar-se</Link>
+      Já possui uma conta? 
+      <Link as={ReachLink} color= "#00ACC1" textDecoration={"underline"} to='/login' >Faça login</Link>
       </Flex>
       </LinkRegister>
 
@@ -116,4 +116,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
