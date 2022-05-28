@@ -10,6 +10,9 @@ import logoWhiteDesktop from '../images/logoWhiteDesktop.png'
 import { LoginTitle,  LinkRegister} from "../styled";
 import React from 'react';
 import { ViewIcon , ViewOffIcon } from '@chakra-ui/icons'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from 'yup'
 
 // The default icon size is 1em (16px)
 
@@ -28,20 +31,31 @@ function Register() {
 
   const from = location.state?.from?.pathname || "/";
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.currentTarget);
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    await signin({ email, password });
+  const onSubmit =  async  (data) =>{
+    try {
+   const { name, email, username, password} = data
+    
+    await signin({ name, email, username, password });
     navigate(from, { replace: true });
+      
+    } catch (error) {
+      console.log(error)
+    } 
   }
+
+  const schema = yup.object({
+    name: yup.string().required("Campo obrigatório"),
+    username: yup.string().required("Campo obrigatório"),
+    email: yup.string().required("Campo obrigatório"),
+    password: yup.string().required("Campo obrigatório"),
+  }).required();
+
+  const { register, handleSubmit, formState: { errors }, } = useForm({ resolver: yupResolver(schema), });
+  
 
   return (
 
-   <Container maxW='1280px' p={0} >
+   <Container maxW='1280px' p={0} marginLeft= {0}>
     <Flex direction={['column', 'row']}  paddingBottom={['4rem', 0]}>
      {/* --------------------imagem background */}
 
@@ -70,39 +84,42 @@ function Register() {
     Cadastro
     </LoginTitle>
      
-         <form onSubmit={handleSubmit} >
+         <form onSubmit={handleSubmit(onSubmit)} >
        
           <InputGroup  focusBorderColor='#00ACC1'  flexDirection={"column"} bgcolor={"white"} size='md' gap={"7px"}>
 
           <FormLabel>    Nome      
-          <Input variant="outline" width={'100%'}  placeholder='Nome' size='md' /></FormLabel>
+          <Input variant="outline" width={'100%'}  placeholder='Nome' size='md' {...register("name")} />
+          {errors.name && <span>{errors.name.message}</span>}</FormLabel>
 
           <FormLabel>    Email      
-          <Input variant="outline" width={'100%'}  placeholder='E-mail' size='md' /></FormLabel>
+          <Input variant="outline" width={'100%'}  placeholder='E-mail' size='md' {...register("email")}/>
+          {errors.email && <span>{errors.email.message}</span>}</FormLabel>
 
           <FormLabel>    Nome de usuário      
-          <Input variant="outline" width={'100%'}  placeholder='Ex.: @billbulldog' size='md' /></FormLabel>
+          <Input variant="outline" width={'100%'}  placeholder='Ex.: @billbulldog' size='md'{...register("username")} />
+          {errors.username && <span>{errors.username.message}</span>}</FormLabel>
           
           <FormLabel>      Senha
           <Input   width={'100%'} variant="outline"  bg={"white"}    
           placeholder='Senha' 
-            type={show ? 'text' : 'password'} />
+            type={show ? 'text' : 'password'} {...register("password")}/>
      
-         <InputRightElement  paddingTop={"17.7rem"}  width='4.3rem'>
+         <InputRightElement  paddingTop={"17.7rem"}  width='6.3rem'>
           <Button  h='1.75rem' size='lg' bg='none' onClick={handleClick}>
           {show ? <ViewOffIcon boxSize={6}/> : <ViewIcon  boxSize={6}/>} </Button>
-         </InputRightElement></FormLabel>
+         </InputRightElement>{errors.password && <span>{errors.password.message}</span>} </FormLabel>
 
          </InputGroup>
           <Button mt="2rem" size='md' width={'97%'}  color="white" 
-              colorScheme='cyan' type="submit">Login</Button>
+              colorScheme='cyan' type="submit">Cadastrar</Button>
         
          </form>
 
       <LinkRegister >
       <Flex paddingTop={"2rem"} flexDirection={"column"} paddingBottom={"2rem"}>
       Já possui uma conta? 
-      <Link as={ReachLink} color= "#00ACC1" textDecoration={"underline"} to='/login' >Faça o Cadastro</Link>
+      <Link as={ReachLink} color= "#00ACC1" textDecoration={"underline"} to='/login' >Faça o login</Link>
       </Flex>
       </LinkRegister>
 
