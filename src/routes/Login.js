@@ -57,7 +57,8 @@ function Login() {
      {/* --------------------imagem background */}
 
       <Stack  color={'white'}  bgImage={[dogFront,dogFrontDesktop]} bgRepeat='no-repeat' bgSize={'cover'} bgPosition={"center"}
-      height={['262px', '100vh']}  display={'flex'} gap={"2rem"} paddingLeft={"2rem"} justify={'center'} paddingTop={"4rem"} flexDirection={"column"} Width ={'100%'} maxW={['','768px']}
+      height={['262px', '100vh']}  display={'flex'} gap={"2rem"} paddingLeft={"2rem"} justify={'center'}
+       paddingTop={"4rem"} flexDirection={"column"} Width ={'100%'} maxW={['','768px']}
       minW={['','768px']}>
         
       

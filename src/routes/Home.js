@@ -1,7 +1,9 @@
 import {
   Drawer,  DrawerBody,  DrawerFooter,  DrawerHeader,  DrawerOverlay,
-  DrawerContent,  DrawerCloseButton, Button,  useDisclosure} from '@chakra-ui/react'
+  DrawerContent,  DrawerCloseButton, Button,  useDisclosure,  Box, Image} from '@chakra-ui/react'
 import React from 'react';
+import menu from '../images/menu.png'
+import logo from '../images/logo.png'
 
 function Home() {
 
@@ -10,9 +12,13 @@ function Home() {
 
   return (
     <>
-      <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-        Open
+    <Box display={'flex'}   boxShadow="base"  p="3" flexDirection={'row'}  bgImage={logo}  bgRepeat="no-repeat" bgPosition={"center"} width={"100%"} position={"absolute"} 
+    borderBottom={'ButtonShadow'}>
+      <Button ref={btnRef} bg='none'  alignContent="center"  onClick={onOpen} >
+        <Image ml={'0.2rem'} alignContent="center"  height={'1.3rem'}  src= {menu}   alt='menu'  />
       </Button>
+      {/* <Image      src= {logo}   alt='menu'  /> */}
+      </Box> 
       <Drawer
         isOpen={isOpen}
         placement='left'
