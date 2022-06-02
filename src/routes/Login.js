@@ -30,7 +30,7 @@ function Login() {
   const handleClick = () => setShow(!show)
   
   const from = location.state?.from?.pathname || "/";
-
+ 
   const onSubmit =  async  (data) =>{
     try {
    const { email, password} = data
@@ -112,7 +112,7 @@ function Login() {
       <LinkRegister >
       <Flex paddingTop={"2rem"} flexDirection={"column"} paddingBottom={"2rem"}>
       Ainda não possui uma conta? 
-      <Link as={ReachLink} color= "#00ACC1" textDecoration={"underline"} to='/register' >Cadastrar-se</Link>
+      <Link as={ReachLink} color= "#00ACC1" textDecoration={"underline"} to='/signup' >Cadastrar-se</Link>
       </Flex>
       </LinkRegister>
 

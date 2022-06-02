@@ -2,7 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import { AuthProvider, RequireAuth } from "./context/auth-context";
 import Login from "./routes/Login";
 import Home from "./routes/Home";
-import Register from "./routes/Register";
+import Signup from "./routes/Signup";
+import Profile from "./routes/Profile";
 
 
 
@@ -17,7 +18,8 @@ function App() {
             </RequireAuth>} />
 
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
           
            </Routes>
     </AuthProvider>

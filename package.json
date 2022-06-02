@@ -2,6 +2,8 @@
   "name": "pjf-front",
   "version": "0.1.0",
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@chakra-ui/icon": "^3.0.1",
     "@chakra-ui/icons": "^2.0.1",
     "@chakra-ui/react": "^2.1.0",
     "@emotion/react": "^11",
@@ -15,6 +17,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-hook-form": "^7.31.2",
+    "react-icons": "^4.4.0",
     "react-router-dom": "6",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",

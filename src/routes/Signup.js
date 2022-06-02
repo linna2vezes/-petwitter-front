@@ -1,6 +1,5 @@
 import { Flex, Stack, Image, Input, InputGroup,InputRightElement, Button, Link, useMediaQuery, Container, FormLabel  } from "@chakra-ui/react";
 import { useLocation, useNavigate, Link as ReachLink } from "react-router-dom";
-import { useAuth } from "../context/auth-context";
 import dogFrontRegister from '../images/dogFrontRegister.png'
 import logoWhite from '../images/logoWhite.png'
 import logo from '../images/logo.png'
@@ -12,7 +11,9 @@ import React from 'react';
 import { ViewIcon , ViewOffIcon } from '@chakra-ui/icons'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from 'yup'
+import * as yup from 'yup';
+import  { signup } from "../services/auth";
+
 
 // The default icon size is 1em (16px)
 
@@ -20,10 +21,9 @@ import * as yup from 'yup'
 
 
 
-function Register() {
+function Signup() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { signin } = useAuth();
   const [isLargerThan480] = useMediaQuery('(min-width: 480px)')
 
   const [show, setShow] = React.useState(false)
@@ -35,9 +35,9 @@ function Register() {
     try {
    const { name, email, username, password} = data
     
-    await signin({ name, email, username, password });
+    await signup({ name, email, username, password });
     navigate(from, { replace: true });
-      
+     alert("usuário cadastrado") 
     } catch (error) {
       console.log(error)
     } 
@@ -136,4 +136,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Signup;
