@@ -1,36 +1,51 @@
 
 import React, { Fragment } from 'react';
-
-
-// import Tweets from '../components/Tweets';
-// import Menu from '../components/Menu';
 import MenuMobile from '../components/MenuMobile';
 import MenuDesktop from '../components/MenuDesktop';
 import { Flex } from '@chakra-ui/react';
-import Tweets from '../components/Tweets';
+import TweetsMobile from '../components/TweetsMobile';
+import TweetsDesktop from '../components/TweetsDesktop';
+import Feed from '../components/Feed';
+import list from './list';
 
-// import MenuDesktop from '../components/MenuDesktop';
-// import { Flex } from '@chakra-ui/react';
+
 
 function Home() {
 //  const [isLargerThan480] = useMediaQuery('(min-width: 480px)')
 
+// const [ pets, setPets] = useState ([]);
+  
+// useEffect(() => {
+//   const request = async () => {
+//   try {
+//     const response = await listPets();
+//     console.log(response.data.pets);
+//     setPets(response.data.pets)
+//      } catch (error) {
+//      console.log("Deu Ruim");
+//      }
+//    };
+//   request();
+// }, []);
+
   return (
     <Fragment>
     <Flex direction={["column", "row"]}>
+
       <Flex display={["flex", "none"]}>
        <MenuMobile />
+       <TweetsMobile />
        </Flex>
+       
        <Flex display={["none", "flex"]}>
        <MenuDesktop />
+       <TweetsDesktop />
+       </Flex>
+       <Flex>
+       {list.map((el) => <Feed  image={el.image} name={el.name} usermane={el.usermane} tweet={el.tweet} />)}
+       </Flex>   
        </Flex>
        
-             <Tweets />
-      
-       
-       </Flex>
-       
-       {/* {list.map((el) => <Card image={el.image} name={el.name} price={el.price} />)} */}
        </Fragment>
   )
 }

@@ -24,7 +24,7 @@ import {    useDisclosure,  Box, Image,  LinkBox, Icon } from '@chakra-ui/react'
 
         {/* ----menu desktop */}
 
-    <Box  maxwidth={"298px"} width={"100%"} boxShadow="0 0 2px 0 #424242" height={"100vh"} display={"flex"} flexDirection={"column"} justifyContent={'flex-start'} borderLeft={'ButtonShadow'}>
+    <Box  maxwidth={"298px"} width={"100%"} boxShadow="0 0 2px 0 #E5E5E5" height={"100vh"} display={"flex"} flexDirection={"column"} justifyContent={'flex-start'} borderLeft={'ButtonShadow'}>
     <Image  margin={"auto"} marginBottom={"2rem"} marginTop={"2rem"}   
    src={logoBigger}    alt='Photo'/>
   
