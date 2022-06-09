@@ -27,7 +27,7 @@ const onSubmit =  async  (event) =>{
     
       
   } catch (error) {
-    alert("Deu ruim!")
+    alert("Vixi! Deu ruim! Não foi possível criar o post.")
   } 
 }
  

@@ -7,12 +7,13 @@ import CardTweet from "./CardTweet";
 const ProfileCard = () => {
 
 const {user} = useAuth()
-const [ userTweet, setUserTweet]= useState ([]);
+const [userTweet, setUserTweet]= useState ([]);
 
 useEffect(() => {
     const request = async () =>{
      try {
     const response = await getUserTweet(user.id);
+    console.log(user.id);
     setUserTweet (response.data);
 } catch (error) {
    alert("deu ruim");

@@ -34,9 +34,9 @@ import ManualClose from './ManualClose';
         
         <Button ref={btnRef} bg='none'  p="0" onClick={onOpen} >
         <Image ml={'0.2rem'}  height={'1.3rem'}  src= {menu}   alt='menu'  /> </Button>
-        <Flex>
-
-        <Image src={logo} align="center" alt='logo' /> </Flex>
+        
+        <Flex width={"100%"} justifyContent="center">
+        <Image src={logo}  alt='logo' /> </Flex>
         
         </Box> 
         
