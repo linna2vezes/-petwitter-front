@@ -1,28 +1,43 @@
-import {Flex, Image} from "@chakra-ui/react";
+import {Flex} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { getAllTweets } from "../services/auth";
+import CardTweet from "./CardTweet";
 
 
 
 
-function Feed( props) {
-const {image, name, username,tweet} = props
+function Feed () {
+
+ const [tweet, setTweet] = useState ([]);
+  
+useEffect(() => {
+   const request = async () => {
+   try {
+     const response = await getAllTweets()
+     setTweet(response.data)
+      } catch (error) {
+      console.log("Deu Ruim");
+      
+      }
+    };
+    request();
+ }, []);
 
   
   return (
-   <>
-   <Flex display={"flex"} flexDirection={"row"}>
-   <Image  margin={"auto"} marginBottom={"2rem"} marginTop={"2rem"} borderRadius='full'  boxSize='100px'
-            src={image}    alt='Photo'/>
-            <Flex display={"flex"} flexDirection={"column"}>
-              <Flex> <p>{name} + @{username} </p></Flex>
-              <Flex><p>{tweet}</p></Flex>
-            </Flex> 
+  <>
+<Flex direction={"column"}>
+
+{tweet.map((el) => <CardTweet 
+body={(el.body)} user_id={(el.user_id)} createdAt={(el.createdAt)}/>)}
+
+
+
+</Flex>
+</>
+    
    
-
-
-
-   </Flex>
-   </>
-  );
+   )
 }
 
 export default Feed;

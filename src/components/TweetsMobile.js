@@ -35,9 +35,9 @@ const onSubmit =  async  (event) =>{
 
  
   return (
-    <Flex display={"flex"}>
+    <Flex display={"flex"} width={"100%"}>
      
-       <Button  position={"fixed"} bottom={'0'} right={"0"} margin="1rem" align="flex-end" padding={0} borderRadius="full" color="white" colorScheme='cyan'size='md'
+       <Button  position={"fixed"} bottom={'0'} right={'0'} margin="1rem"  padding={0} borderRadius="full" color="white" colorScheme='cyan'size='md'
           onClick={onOpen}  >     <AddIcon w={6} h={6} />  </Button>
    
 
@@ -57,7 +57,7 @@ const onSubmit =  async  (event) =>{
           
               <ModalBody display={'flex'} direction={'row'} gap="1rem">
           <Image borderRadius={"full"} boxSize={'37px'} src={photoProfile} />
-           <Textarea resize={"none"}  border="none" _focus={"none"}  placeholder='O que está acontecendo?' maxLength={'140'}
+           <Textarea resize={"none"} p="0" border="none" _focus={"none"}  placeholder='O que está acontecendo?' maxLength={'140'}
             {...register("body")} /> 
           </ModalBody>
           <ModalFooter>

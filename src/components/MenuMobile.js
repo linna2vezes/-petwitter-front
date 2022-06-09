@@ -6,7 +6,8 @@ import menu from '../images/menu.png'
 import logo from '../images/logo.png'
 import { Link as ReachLink,  Outlet,  useLocation } from "react-router-dom";
 import photoProfile from "../images/photoProfile.jpg"
-import exit from "../images/exit.png"
+// import exit from "../images/exit.png"
+import ManualClose from './ManualClose';
 
 
 
@@ -27,11 +28,15 @@ import exit from "../images/exit.png"
   
     return (
    <>
-  <Box display={'flex'}   boxShadow="base"  p="3" flexDirection={'row'}  bgImage={logo}  bgRepeat="no-repeat" bgPosition={"center"} width={"100%"} position={"absolute"} 
+  <Box display={"flex"}  alignItems={'center'} boxShadow="base"  p="3" flexDirection={'row'}  width={"100%"} 
       borderBottom={'ButtonShadow'}>
+        
+        
         <Button ref={btnRef} bg='none'  p="0" onClick={onOpen} >
-        <Image ml={'0.2rem'}  height={'1.3rem'}  src= {menu}   alt='menu'  />
-        </Button>
+        <Image ml={'0.2rem'}  height={'1.3rem'}  src= {menu}   alt='menu'  /> </Button>
+        <Flex>
+
+        <Image src={logo} align="center" alt='logo' /> </Flex>
         
         </Box> 
         
@@ -67,11 +72,11 @@ import exit from "../images/exit.png"
             borderWidth={location.pathname === '/profile' ? ' 0 0 0 5px' : ''}
             borderColor={location.pathname === '/profile' ? '#00ACC1' : ''} 
             fontWeight={location.pathname === '/profile' ? "bold": ''}>   PERFIL </LinkBox  >
-            <LinkBox pt={"30px"} as={ReachLink} to="/" margin={"auto"}  display={"flex"} flexDirection={"row"}> <Image  src={exit} boxSize='25px' mx={"0.3rem"} alt='Photo'/> Sair </LinkBox>
-            
+            {/* <LinkBox pt={"30px"} as={ReachLink} to="/" margin={"auto"}  display={"flex"} flexDirection={"row"}> <Image  src={exit} boxSize='25px' mx={"0.3rem"} alt='Photo'/> Sair </LinkBox> */}
+            <ManualClose />
           </Flex>
             </DrawerBody>
-  
+            
             
           </DrawerContent>
         </Drawer> 

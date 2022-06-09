@@ -27,11 +27,11 @@ function TweetsDesktop() {
   
   
   return(
-    <Flex  padding={"1rem"} direction={'column'} position="relative"  borderBottom={'1px solid #EEEEEE'}  borderRight={'1px solid #EEEEEE'} maxHeight="210px" maxWidth="784px">
+    <Flex  padding={"1rem"} direction={'column'} position="relative"  borderBottom={'4px solid #EEEEEE'} minWidth="600px" width={"100%"} maxHeight="210px" maxWidth="784px">
      <form onSubmit={handleSubmit(onSubmit)}>
         <Flex gap="1rem" marginTop="2rem" display={"flex"} direction={'row'} alignSelf="flex-start">
             <Image borderRadius={"full"} boxSize={'37px'} src={photoProfile} />
-            <Textarea border="0 none" _focus={"none"} height="200px"  width="500px" placeholder='O que está acontecendo?' resize={"none"} maxLength={'140'} {...register("body")} />
+            <Textarea border="0 none" _focus={"none"} height="200px"  minWidth="400px" placeholder='O que está acontecendo?' resize={"none"} p="0" maxLength={'140'} {...register("body")} />
        </Flex>
         <Flex position="absolute" padding={"1rem"} display={"flex"} gap="1rem" direction={'row'} bottom="1rem" right="1rem" >
         <Text color="#424242" alignItems={'center'} marginy="auto"  fontsize="13px" fontWeight={"400"}>0/140</Text>
