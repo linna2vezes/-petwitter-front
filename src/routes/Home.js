@@ -25,7 +25,7 @@ function Home() {
        </Flex>
        </Flex>
        
-       <Flex display={["none", "flex"]}   borderRight={'1px solid #EEEEEE'}  >
+       <Flex display={["none", "flex"]}   borderRight={'1px solid #EEEEEE'}  borderLeft={'1px solid #EEEEEE'} >
        <MenuDesktop />
        <Flex direction={"column"} >
        <TweetsDesktop />

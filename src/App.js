@@ -17,6 +17,7 @@ function App() {
         {/* <Route element={<Menu />}> */}
           <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
+          <Route path="/profile/:id" element={<RequireAuth><Profile /></RequireAuth>} />
         
         {/* </Route> */}
       </Routes>
