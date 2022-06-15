@@ -10,10 +10,12 @@ import thatsall from "../images/thatsall.png"
 function Feed () {
 
  const [tweet, setTweet] = useState ([]);
+//  const [skip, setSkip] = useState (10)
   
 useEffect(() => {
    const request = async () => {
    try {
+     
      const response = await getAllTweets()
      setTweet(response.data)
       } catch (error) {
@@ -25,6 +27,7 @@ useEffect(() => {
  }, []);
 
   
+
   return (
   <>
 <Flex direction={"column"}>

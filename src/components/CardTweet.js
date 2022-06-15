@@ -28,7 +28,7 @@ const [user, setUser] = useState ()
          request();
       }, [user_id]);
 
-      console.log(user?.name);
+      // console.log(user?.name);
 
 return(
 

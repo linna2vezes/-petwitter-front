@@ -13,14 +13,14 @@ const ProfileCard = ({body, createdAt, username}) => {
 const {user} = useAuth()
 const {id , user_id} = useParams()
 const [userTweet, setUserTweet]= useState ([]);
-const [userdata, setuser] = useState(false);
+const [userdata, setuser] = useState();
 
 
 useEffect(() => {
     const request = async () =>{
      try {
     const response = await getUserTweet(user_id ? user_id : id);
-    console.log(id);
+    // console.log(id);
     setUserTweet (response.data);
     
 } catch (error) {
@@ -36,16 +36,20 @@ request()
 useEffect(() => {
   const request = async () => {
     try {
-      const response = await getUser(user_id);
-      setuser(response.data[0]);
+      const response = await getUser(id);
+      setuser(response.data);
+      console.log(response.data);
+
     } catch (error) {
       console.log(error.message);
+      console.log("okok");
+
     }
   };
  request();
-}, [user_id]);
+}, [id]);
 
-
+console.log(userdata);
 
 return (
     <>
@@ -59,8 +63,8 @@ return (
            </Flex>
            
               <Flex flexDirection={"column"} > 
-              <Text fontWeight={"700"} pt="3px" fontSize="22px" lineHeight={"35px"}>{ userdata ?  userdata.name : user?.name }</Text> 
-              <Text fontWeight={"400"} mt="0" fontSize="16px" lineHeight={"22px"} color="#828282"  >@{user?.username}</Text> 
+              <Text fontWeight={"700"} pt="3px" fontSize="22px" lineHeight={"35px"}>{ userdata ?  userdata.name : user.name }</Text> 
+              <Text fontWeight={"400"} mt="0" fontSize="16px" lineHeight={"22px"} color="#828282"  >@{ userdata ?  userdata.username : user.username }</Text> 
               
               
               </Flex>

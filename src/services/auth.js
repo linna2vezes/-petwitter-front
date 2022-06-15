@@ -16,5 +16,8 @@ export const getUserTweet = (id) => client.get(`/tweet/${id}`);
 
 export const getUser =(id) => client.get(`/user/${id}`);
 
-export const getAllTweets =(id) => client.get(`/tweet`);
+export const getAllTweets =(skip) => client.get(`/tweet`);
+// export const getAllTweets =(skip) => client.get(`/tweet?skip=${skip}&take=10`);
+
+
 
