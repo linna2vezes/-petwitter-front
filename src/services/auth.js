@@ -12,3 +12,12 @@ export const createTweet = (data) => client.post("/tweet", data);
 
 export const deleteTweet = (id) => client.delete(`/tweet/${id}`);
 
+export const getUserTweet = (id) => client.get(`/tweet/${id}`);
+
+export const getUser =(id) => client.get(`/user/${id}`);
+
+export const getAllTweets =(skip) => client.get(`/tweet`);
+// export const getAllTweets =(skip) => client.get(`/tweet?skip=${skip}&take=10`);
+
+
+

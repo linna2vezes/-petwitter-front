@@ -6,44 +6,33 @@ import { Flex } from '@chakra-ui/react';
 import TweetsMobile from '../components/TweetsMobile';
 import TweetsDesktop from '../components/TweetsDesktop';
 import Feed from '../components/Feed';
-import list from './list';
 
 
 
 function Home() {
 //  const [isLargerThan480] = useMediaQuery('(min-width: 480px)')
 
-// const [ pets, setPets] = useState ([]);
-  
-// useEffect(() => {
-//   const request = async () => {
-//   try {
-//     const response = await listPets();
-//     console.log(response.data.pets);
-//     setPets(response.data.pets)
-//      } catch (error) {
-//      console.log("Deu Ruim");
-//      }
-//    };
-//   request();
-// }, []);
 
   return (
     <Fragment>
-    <Flex direction={["column", "row"]}>
+    <Flex direction={["column", "row"]} >
 
       <Flex display={["flex", "none"]}>
+      <Flex direction={"column"} width={"100%"} maxWidth={"480px"}  >
        <MenuMobile />
-       <TweetsMobile />
+        <TweetsMobile  />
+        <Feed />
+       </Flex>
        </Flex>
        
-       <Flex display={["none", "flex"]}>
+       <Flex display={["none", "flex"]}   borderRight={'1px solid #EEEEEE'}  borderLeft={'1px solid #EEEEEE'} >
        <MenuDesktop />
+       <Flex direction={"column"} >
        <TweetsDesktop />
+           <Feed />
+       </Flex> 
        </Flex>
-       <Flex>
-       {list.map((el) => <Feed  image={el.image} name={el.name} usermane={el.usermane} tweet={el.tweet} />)}
-       </Flex>   
+         
        </Flex>
        
        </Fragment>

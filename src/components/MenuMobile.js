@@ -6,7 +6,9 @@ import menu from '../images/menu.png'
 import logo from '../images/logo.png'
 import { Link as ReachLink,  Outlet,  useLocation } from "react-router-dom";
 import photoProfile from "../images/photoProfile.jpg"
-import exit from "../images/exit.png"
+// import exit from "../images/exit.png"
+import ManualClose from './ManualClose';
+import { useAuth } from "../context/auth-context";
 
 
 
@@ -16,7 +18,7 @@ import exit from "../images/exit.png"
   
   function MenuMobile() {
   
-   
+    const {user} = useAuth()
     const btnRef = React.useRef()
     const location = useLocation();
     
@@ -27,11 +29,15 @@ import exit from "../images/exit.png"
   
     return (
    <>
-  <Box display={'flex'}   boxShadow="base"  p="3" flexDirection={'row'}  bgImage={logo}  bgRepeat="no-repeat" bgPosition={"center"} width={"100%"} position={"absolute"} 
+  <Box display={"flex"}  alignItems={'center'} boxShadow="base"  p="3" flexDirection={'row'}  width={"100%"} 
       borderBottom={'ButtonShadow'}>
+        
+        
         <Button ref={btnRef} bg='none'  p="0" onClick={onOpen} >
-        <Image ml={'0.2rem'}  height={'1.3rem'}  src= {menu}   alt='menu'  />
-        </Button>
+        <Image ml={'0.2rem'}  height={'1.3rem'}  src= {menu}   alt='menu'  /> </Button>
+        
+        <Flex width={"100%"} justifyContent="center">
+        <Image src={logo}  alt='logo' /> </Flex>
         
         </Box> 
         
@@ -62,16 +68,16 @@ import exit from "../images/exit.png"
   // _hover={{   borderLeft:'5px', textDecoration:"bold", background: "#E5F7F9",  width:"100%",   color: "#00ACC1",   }} 
   >   HOME </LinkBox  >
             <LinkBox    width="100%"  borderRadius={"0"} variant ="link" paddingY={"0.6rem"} textAlign={"center"}  colorScheme="#424242"
-            as={ReachLink} to="/profile"  background={location.pathname === '/profile' ? "#E5F7F9" : ""}
-            color={location.pathname === '/profile' ? "#00ACC1" : ""}
-            borderWidth={location.pathname === '/profile' ? ' 0 0 0 5px' : ''}
-            borderColor={location.pathname === '/profile' ? '#00ACC1' : ''} 
-            fontWeight={location.pathname === '/profile' ? "bold": ''}>   PERFIL </LinkBox  >
-            <LinkBox pt={"30px"} as={ReachLink} to="/" margin={"auto"}  display={"flex"} flexDirection={"row"}> <Image  src={exit} boxSize='25px' mx={"0.3rem"} alt='Photo'/> Sair </LinkBox>
-            
+            as={ReachLink} to={`/profile/${user.id}`}  background={location.pathname === `/profile/${user.id}` ? "#E5F7F9" : ""}
+            color={location.pathname === `/profile/${user.id}` ? "#00ACC1" : ""}
+            borderWidth={location.pathname === `/profile/${user.id}`  ? ' 0 0 0 5px' : ''}
+            borderColor={location.pathname === `/profile/${user.id}` ? '#00ACC1' : ''} 
+            fontWeight={location.pathname === `/profile/${user.id}` ? "bold": ''}>   PERFIL </LinkBox  >
+            {/* <LinkBox pt={"30px"} as={ReachLink} to="/" margin={"auto"}  display={"flex"} flexDirection={"row"}> <Image  src={exit} boxSize='25px' mx={"0.3rem"} alt='Photo'/> Sair </LinkBox> */}
+            <ManualClose />
           </Flex>
             </DrawerBody>
-  
+            
             
           </DrawerContent>
         </Drawer> 
