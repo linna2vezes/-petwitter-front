@@ -54,7 +54,7 @@ import { useAuth } from "../context/auth-context";
 {/* <LinkBox   height={"3rem"}  width="100%" alignItems={"center"}  display={"flex"} flexDirection={"row"} justifyContent={'center'}  paddingY={"3rem"}   
   onClick={onOpen} > <Image  src={exit} boxSize='25px' mx={"0.3rem"} alt='Photo'/> Sair </LinkBox> */}
 
-<ManualClose m={0} />
+<ManualClose  />
 
 
 </Box>
