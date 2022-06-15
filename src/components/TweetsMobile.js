@@ -16,7 +16,7 @@ const size= ['full']
 
 const { register, handleSubmit, reset  } = useForm( );
  const [sending, setSending]= useState (false)
- const[ tweetLength, setTweeteLength]=useState(0)
+ const[ tweetCaracter, setTweeteCaracter]=useState(0)
 
 const onSubmit =  async  (event) =>{
     try {
@@ -44,12 +44,12 @@ const onSubmit =  async  (event) =>{
 
       <Modal isCentered size={size} isOpen={isOpen} direction="column" align="center" >
 
-        <form onSubmit={handleSubmit(onSubmit)} onChange={event => setTweeteLength(event.target.value.length)}>
+        <form onSubmit={handleSubmit(onSubmit)} onChange={event => setTweeteCaracter(event.target.value.length)}>
         <ModalContent display="flex" direction={'column'}  >
           <ModalHeader display="flex" align="center" direction="row" justifyContent={"space-between"} 
           borderBottom={"1px solid #EEEEEE"} minH={"2rem"}>
               <Button onClick={onClose} p="0" bg="none" fontsize="2rem" color="#424242"> Cancelar</Button>
-              <Text color="#424242" alignItems={'center'} marginy="auto"  fontsize="13px" fontWeight={"400"}>{tweetLength}/140</Text>
+              <Text color="#424242" alignItems={'center'} marginy="auto"  fontsize="13px" fontWeight={"400"}>{tweetCaracter}/140</Text>
               <Button colorScheme="#00ACC1;" size='sm' type={'submit'} boxShadow="base" 
               borderBottom={'ButtonShadow'} 
                isLoading={sending}

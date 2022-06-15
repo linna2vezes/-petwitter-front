@@ -21,7 +21,6 @@ function Profile() {
        <Flex display={["none", "flex"]}   borderRight={'1px solid #EEEEEE'}  >
        <MenuDesktop />
        <Flex pt="2" direction={"column"} minWidth="600px" width={"100%"} >
-      
        <ProfileCard />
        </Flex> 
        </Flex>

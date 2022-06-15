@@ -18,9 +18,9 @@ function Home() {
     <Flex direction={["column", "row"]} >
 
       <Flex display={["flex", "none"]}>
-      <Flex direction={"column"} width={"100%"}maxWidth={"480px"} >
+      <Flex direction={"column"} width={"100%"} maxWidth={"480px"}  >
        <MenuMobile />
-        <TweetsMobile />
+        <TweetsMobile  />
         <Feed />
        </Flex>
        </Flex>
