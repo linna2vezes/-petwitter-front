@@ -1,4 +1,4 @@
-import {Flex, Image, Textarea, Text, Button} from "@chakra-ui/react";
+import {Flex, Image, Textarea, Text, Button, useToast} from "@chakra-ui/react";
 import photoProfile from "../images/photoProfile.jpg"
 import { useForm } from 'react-hook-form';
 import { createTweet } from '../services/auth';
@@ -11,17 +11,32 @@ function TweetsDesktop() {
   const { register, handleSubmit, reset  } = useForm( );
   const [sending, setSending]= useState (false)
   const[ tweetCaracter, setTweeteCaracter]=useState(0)
+  const toast = useToast()
  const onSubmit =  async  (event) =>{
      try {
    setSending(true)
      await createTweet( event);
-     alert("Post criado");
+     toast({
+      position: 'top',
+      title: 'Sucesso',
+      description: "Post criado!",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
      reset();
      setSending(false);
      
        
    } catch (error) {
-    alert("Vixi! Deu ruim! Não foi possível criar o post.")
+    toast({
+      position: 'top',
+      title: 'Deu ruim',
+      description: "O post não pode ser criado!",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+    })
    } 
  }
   
