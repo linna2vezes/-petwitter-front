@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
       setInStorage("user", user);
       setUser(user);
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
       alert("Email ou senha inválidos");
     }
   };
