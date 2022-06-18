@@ -1,4 +1,4 @@
-import { Flex, Stack, Image, Input, InputGroup,InputRightElement, Button, Link, useMediaQuery, Container, FormLabel  } from "@chakra-ui/react";
+import { Flex, Stack, Image, Input, InputGroup,InputRightElement, Button, Link, useMediaQuery,useToast, Container, FormLabel  } from "@chakra-ui/react";
 import { useLocation, useNavigate, Link as ReachLink } from "react-router-dom";
 import dogFrontRegister from '../images/dogFrontRegister.png'
 import logoWhite from '../images/logoWhite.png'
@@ -28,6 +28,7 @@ function Signup() {
 
   const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
+    const toast = useToast()
 
   const from = location.state?.from?.pathname || "/";
 
@@ -37,9 +38,23 @@ function Signup() {
     
     await signup({ name, email, username, password });
     navigate(from, { replace: true });
-     alert("usuário cadastrado") 
+    toast({
+      position: 'top',
+      title: 'Conta criada com sucesso',
+      description: "E lá vamos nós!",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
     } catch (error) {
-      console.log(error)
+      toast({
+        position: 'top',
+        title: 'Vixi!',
+        description: "Deu algum erro!",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
     } 
   }
 

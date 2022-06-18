@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  Button,  useDisclosure,   
+import {  Button,  useDisclosure,  useToast, 
 Modal,  ModalContent,  ModalBody, ModalHeader, ModalFooter, Flex ,Text, Image, Textarea} from '@chakra-ui/react';
 import photoProfile from  "../images/photoProfile.jpg";
 import {  AddIcon } from '@chakra-ui/icons';
@@ -12,7 +12,7 @@ function TweetsMobile() {
 
 const { isOpen, onOpen, onClose } = useDisclosure();
 const size= ['full']
-
+const toast = useToast()
 
 const { register, handleSubmit, reset  } = useForm( );
  const [sending, setSending]= useState (false)
@@ -22,13 +22,29 @@ const onSubmit =  async  (event) =>{
     try {
   setSending(true)
     await createTweet( event);
-    alert("Post criado");
+    // alert("Post criado");
+    toast({
+      position: 'top',
+      title: 'Sucesso',
+      description: "Post criado!",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+       })
     reset();
     setSending(false);
     
       
   } catch (error) {
-    alert("Vixi! Deu ruim! Não foi possível criar o post.")
+    // alert("Vixi! Deu ruim! Não foi possível criar o post.")
+    toast({
+      position: 'top',
+      title: 'Deu ruim',
+      description: "O post não pode ser criado!",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+    })
   } 
 }
  
