@@ -11,25 +11,25 @@ import InfiniteScroll from "react-infinite-scroll-component";
 function Feed () {
 
  const [tweet, setTweet] = useState ([]);
- const [skips, setskips] = useState(0);
+ const [skip, setskip] = useState(0);
 const [hasmore, sethasmore] = useState(true);
 
 useEffect(() => {
    const request = async () => {
    try {
      
-     const response = await getAllTweets(skips)
+     const response = await getAllTweets(skip)
      if (response.data.length < 10) sethasmore(false)
-     skips === 0 ? setTweet(response.data) : setTweet(tweet.concat(response.data));
+     skip === 0 ? setTweet(response.data) : setTweet(tweet.concat(response.data));
       } catch (error) {
       console.log("Deu Ruim");
       
       }
     };
     request();
- }, [skips]);
+ }, [skip]);
 
- const fetchData = () => setskips(skips + 10); 
+ const fetchData = () => setskip(skip + 10); 
 
   return (
   <>
