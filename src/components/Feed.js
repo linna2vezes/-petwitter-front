@@ -13,6 +13,8 @@ function Feed () {
  const [tweet, setTweet] = useState ([]);
  const [skip, setskip] = useState(0);
 const [hasmore, sethasmore] = useState(true);
+ const [refresh, setRefresh] = useState(true);
+ 
 
 useEffect(() => {
    const request = async () => {
@@ -27,6 +29,7 @@ useEffect(() => {
       }
     };
     request();
+    setRefresh(!refresh)
  }, [skip]);
 
  const fetchData = () => setskip(skip + 10); 
@@ -39,6 +42,7 @@ useEffect(() => {
             dataLength={tweet.length}
             next={fetchData}
             hasMore={hasmore}
+        // setRefresh={!refresh}
             loader={
               <CircularProgress
                 isIndeterminate
